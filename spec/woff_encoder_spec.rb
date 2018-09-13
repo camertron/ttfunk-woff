@@ -71,7 +71,17 @@ describe TTFunk::WOFF::WOFFEncoder do
     let(:sfnt_file) { test_font('Exo-Regular', :otf) }
 
     it 'encodes charstrings correctly' do
-      # @TODO
+      sfnt_index = sfnt.cff.top_index[0].charstrings_index
+      woff_index = woff.cff.top_index[0].charstrings_index
+
+      (97..122).each do |codepoint|
+        sfnt_charstring = sfnt_index[sfnt_cmap[codepoint]]
+        woff_charstring = woff_index[woff_cmap[codepoint]]
+
+        expect(woff_charstring.path.commands).to(
+          eq(sfnt_charstring.path.commands)
+        )
+      end
     end
   end
 end
