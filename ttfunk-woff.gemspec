@@ -1,4 +1,4 @@
-$:.unshift File.join(File.dirname(__FILE__), 'lib')
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), 'lib')
 require 'ttfunk/woff/version'
 
 Gem::Specification.new do |s|
@@ -20,5 +20,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rubocop', '~> 0.46'
 
   s.require_path = 'lib'
-  s.files = Dir['{lib,spec}/**/*', 'Gemfile', 'README.md', 'Rakefile', 'ttfunk-woff.gemspec']
+  s.files = Dir[
+    '{lib,spec}/**/*', 'Gemfile', 'README.md',
+    'Rakefile', 'ttfunk-woff.gemspec'
+  ]
 end

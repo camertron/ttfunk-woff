@@ -1,4 +1,4 @@
-$:.push('./lib')
+$LOAD_PATH.push('./lib')
 
 require 'rake'
 require 'rspec/core/rake_task'
